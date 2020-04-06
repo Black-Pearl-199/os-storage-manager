@@ -1,0 +1,12 @@
+@import "../abstracts/media";
+@import "../abstracts/variables";
+
+.logo {
+  content: url($images-root + "logo-medium.png");
+  @include phones {
+    content: url($images-root + "logo-small.png") !important;
+  }
+  @include tablets {
+    content: url($images-root + "logo-small.png") !important;
+  }
+}
