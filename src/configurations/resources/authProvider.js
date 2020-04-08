@@ -1,5 +1,6 @@
 import {AUTH_CHECK, AUTH_ERROR, AUTH_GET_PERMISSIONS, AUTH_LOGIN, AUTH_LOGOUT} from 'react-admin';
 import {COLOR_BLACK, COLOR_VIOLET} from "../logging";
+import { token } from '../../data-test';
 
 const appName = process.env.REACT_APP_NAME;
 export const AUTH_ID = `${appName}.ai`;
@@ -17,7 +18,7 @@ const ALL_SAVE = [AUTH_ID, AUTH_BASIC, AUTH_TOKEN, AUTH_REMEMBER, AUTH_REFRESH_T
 
 const clearData = () => ALL_SAVE.forEach(key => localStorage.removeItem(key));
 
-const saveAccessTokenData = (accessTokenData, rememberLogin) => {
+export const saveAccessTokenData = (accessTokenData, rememberLogin) => {
     let {access_token, token_type, refresh_token, scope, itech_user, expires_in} = accessTokenData;
     localStorage.setItem(AUTH_TOKEN, `${token_type} ${access_token}`);
     localStorage.setItem(AUTH_REFRESH_TOKEN, refresh_token);
@@ -106,46 +107,47 @@ export default (type, params) => {
 
     switch (type) {
         case AUTH_LOGIN:
-            const {username, password, remember} = params;
-            const basicAuth = `Basic ${btoa(`${process.env.REACT_APP_USER}:${process.env.REACT_APP_PASSWORD}`)}`;
-            let formData = new FormData();
-            formData.append('username', username);
-            formData.append('password', password);
-            formData.append('grant_type', 'password');
-            const request = new Request(process.env.REACT_APP_AUTH_URL, {
-                method: 'POST',
-                body: formData,
-                headers: new Headers({
-                    'Authorization': `${basicAuth}`,
-                }),
-            });
-            return fetch(request)
-                .then(
-                    response => {
-                        if (response.status < 200 || response.status >= 300) {
-                            console.groupEnd();
-                            throw new Error(response.statusText);
-                        }
-                        return response.json();
-                    }, error => {
-                        console.error('login error', error);
-                        // toast.error(`Cannot login. Please try again later!`);
-                        console.groupEnd();
-                        return Promise.reject(error);
-                    })
-                .then((accessTokenData) => {
-                    console.log(new Date().getTime());
-                    console.log('login data', accessTokenData);
-                    if (accessTokenData['itech_user']) {
-                        saveAccessTokenData(accessTokenData, remember);
-                        console.groupEnd();
-                        return Promise.resolve({accessTokenData});
-                    } else {
-                        clearData();
-                        console.groupEnd();
-                        return Promise.reject();
-                    }
-                });
+            saveAccessTokenData(token, false);
+            // const {username, password, remember} = params;
+            // const basicAuth = `Basic ${btoa(`${process.env.REACT_APP_USER}:${process.env.REACT_APP_PASSWORD}`)}`;
+            // let formData = new FormData();
+            // formData.append('username', username);
+            // formData.append('password', password);
+            // formData.append('grant_type', 'password');
+            // const request = new Request(process.env.REACT_APP_AUTH_URL, {
+            //     method: 'POST',
+            //     body: formData,
+            //     headers: new Headers({
+            //         'Authorization': `${basicAuth}`,
+            //     }),
+            // });
+            // return fetch(request)
+            //     .then(
+            //         response => {
+            //             if (response.status < 200 || response.status >= 300) {
+            //                 console.groupEnd();
+            //                 throw new Error(response.statusText);
+            //             }
+            //             return response.json();
+            //         }, error => {
+            //             console.error('login error', error);
+            //             // toast.error(`Cannot login. Please try again later!`);
+            //             console.groupEnd();
+            //             return Promise.reject(error);
+            //         })
+            //     .then((accessTokenData) => {
+            //         console.log(new Date().getTime());
+            //         console.log('login data', accessTokenData);
+            //         if (accessTokenData['itech_user']) {
+            //             saveAccessTokenData(accessTokenData, remember);
+            //             console.groupEnd();
+            //             return Promise.resolve({accessTokenData});
+            //         } else {
+            //             clearData();
+            //             console.groupEnd();
+            //             return Promise.reject();
+            //         }
+            //     });
                 // .then(id =>
                 //     iTechDataProvider(GET_ONE, PROVIDER_STAFF, {id})
                 // )

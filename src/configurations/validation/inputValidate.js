@@ -30,8 +30,8 @@ export const inputValidate = {
         pattern: /^[A-Za-z0-9_.-]{3,50}$/
     },
     password: {
-        // pattern: /^[A-Za-z0-9_]{1,50}$/
-        pattern: /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/
+        pattern: /^[A-Za-z0-9_]{1,50}$/
+        // pattern: /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/
     },
     email: {
         // eslint-disable-next-line no-useless-escape

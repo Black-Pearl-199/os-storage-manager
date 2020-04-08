@@ -86,7 +86,8 @@ export const commons = {
             birthDate: 'Năm sinh không được nhỏ hơn 1900',
 
             // username: 'Tên đăng nhập không được dài quá 50 kí tự, chỉ bao gồm chữ cái và số. Xin thử lại.',
-            password: 'Mật khẩu dài tối thiểu 08 kí tự, bao gồm chữ cái hoa, thường và ít nhất 01 chữ số. Xin thử lại.',
+            // password: 'Mật khẩu dài tối thiểu 08 kí tự, bao gồm chữ cái hoa, thường và ít nhất 01 chữ số. Xin thử lại.',
+            password: 'Mật khẩu bao gồm chữ cái hoa, thường và ít nhất 01 chữ số. Xin thử lại.',
             passwordVerify: 'Mật khẩu xác nhận không khớp với mật khẩu đã nhâp. Xin thử lại',
             phone: 'Số điện thoại chỉ bao gồm số',
             email: 'Email không đúng định dạng',

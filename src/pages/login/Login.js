@@ -9,10 +9,12 @@ import {
 } from "react-admin";
 import { compose } from "recompose";
 import Checkbox from "@material-ui/core/Checkbox";
+import { saveAccessTokenData } from '../../configurations/resources/authProvider';
 import { checkFormValidate } from "../../utils";
 import { URL_STORAGE_MANAGE } from "../home/Home";
 import { STORAGES } from "../../configurations";
 import version from "../../version";
+import { token } from "../../data-test";
 
 class Login extends React.Component {
     constructor(props) {
@@ -34,12 +36,16 @@ class Login extends React.Component {
     };
 
     loginSubmit = (e) => {
+        const { history } = this.props;
         e.preventDefault();
 
         if (!this.checkFormValidate()) return;
+        saveAccessTokenData(token, false);
+        history.push(URL_STORAGE_MANAGE);
 
-        let { username, password, remember } = this.state;
-        this.props.userLogin({ username, password, remember }, URL_STORAGE_MANAGE);
+        // let { username, password, remember } = this.state;
+        // this.props.userLogin({ username, password, remember }, URL_STORAGE_MANAGE);
+
     };
 
     onInputChange = (e) => {
@@ -174,7 +180,7 @@ class Login extends React.Component {
 
 const enhance = compose(
     translate,
-    connect(undefined, { userLogin, userCheck, changeLocale, showNotification })
+    connect(undefined, { userLogin, userCheck, changeLocale, showNotification, saveAccessTokenData })
 );
 
 export default enhance(Login);
