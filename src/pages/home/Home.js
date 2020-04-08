@@ -14,7 +14,7 @@ import { SideBar } from "../../components/layouts";
 export const URL_CHANGE_PASS = '/change_password';
 export const URL_PROFILE = '/profile';
 export const URL_STORAGE_MANAGE = '/storage-manage';
-export const URL_ADD_STORAGE_TAG = '/add-storage-tag';
+export const URL_STORAGE_TAG = '/storage-tag';
 export const URL_STATISTIC_DISTRIBUTE = '/statistic-distribute';
 
 const sideBarProps = {
@@ -36,8 +36,8 @@ const sideBarProps = {
                     title: 'sidebar.storage.statistic_distribute'
                 },
                 {
-                    url: URL_ADD_STORAGE_TAG,
-                    eventKey: URL_ADD_STORAGE_TAG,
+                    url: `${URL_STORAGE_TAG}/create`,
+                    eventKey: `${URL_STORAGE_TAG}/create`,
                     title: 'sidebar.storage.add_storage_tag'
                 },
             ]

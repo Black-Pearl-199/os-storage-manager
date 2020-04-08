@@ -25,11 +25,11 @@ class SaveButtonView extends Component {
 
         // console.log('my save button handle click', this.props);
         const {syncErrors} = recordForm;
-        // if (!isEmpty(syncErrors)) {
-        //     return () => {
-        //         dispatch(showNotification('commons.message.error', 'warning', {messageArgs: {error: getInvalidMessages(syncErrors, translate).join("\n")}}));
-        //     };
-        // }
+        if (!isEmpty(syncErrors)) {
+            return () => {
+                dispatch(showNotification('commons.message.error', 'warning', {messageArgs: {error: getInvalidMessages(syncErrors, translate).join("\n")}}));
+            };
+        }
 
         const sendRequest = (values) => {
             const data = convertValue ? convertValue(values) : values;
@@ -96,6 +96,7 @@ class SaveButtonView extends Component {
             <SaveButton className={classes.button}
                         handleSubmitWithRedirect={this.handleClick}
                         {...rest} submitOnEnter={!rest.disabled}
+                        label="button.complete"
             />
         )
     }
