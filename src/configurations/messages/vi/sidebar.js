@@ -3,7 +3,8 @@ export const sidebar = {
     storage: {
         title: 'Thẻ kho',
         storage_manage: 'Quản lý thẻ kho chung',
-        statistic_distribute: 'Thống kê theo phân loại'
+        statistic_distribute: 'Thống kê theo phân loại',
+        add_storage_tag: 'Thêm thẻ kho'
     },
     personal: {
         list: 'Thông tin tài khoản'
