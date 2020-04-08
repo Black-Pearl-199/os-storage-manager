@@ -19,9 +19,9 @@ export const page = {
     },
     resource: {
         title: {
-            list: 'Quản lý tài nguyên hệ thống',
+            list: 'Quản lý kho',
             edit: 'Sửa tài nguyên hệ thống',
-            create: 'Tạo tài nguyên hệ thống'
+            create: 'Tạo kho'
         },
         notification: {
             delete: {

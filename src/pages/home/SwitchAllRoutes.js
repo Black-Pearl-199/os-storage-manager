@@ -10,7 +10,7 @@ export const LazyResourceList = React.lazy(() => import("../operation_resource/R
 export const LazyResourceCreate = React.lazy(() => import("../operation_resource/ResourceCreate"));
 export const LazyResourceEdit = React.lazy(() => import("../operation_resource/ResourceEdit"));
 
-
+export const LazyListStorageTag = React.lazy(() => import("../storage_manage/tag/ListStorageTag"));
 export default () => (
     <React.Suspense fallback={<LazyLoad />}>
         <Switch>
@@ -20,7 +20,7 @@ export default () => (
                     <Resource
                         context="route"
                         name={OPERATION_RESOURCES}
-                        list={LazyResourceList}
+                        list={LazyListStorageTag}
                         edit={LazyResourceEdit}
                         create={LazyResourceCreate}
                         {...props}
