@@ -16,12 +16,17 @@ export const SCOPES = "scope";
 export const AVATARS = 'avatar';
 export const ME = 'me';
 
+export const STORAGE_TAG = 'storage_tag';
+export const STATISTIC_DISTRIBUTE = 'statistic_distribute';
+
+export const INPUT_OUTPUT_ORDER = 'input_output_order';
+
 export const ADMIN_ALL = [
     USERS,
     PASSWORDS
 ];
 
-export const RESOURCES = [...ADMIN_ALL, OPERATION_RESOURCES, SCOPES, AVATARS, ME];
+export const RESOURCES = [...ADMIN_ALL, OPERATION_RESOURCES, SCOPES, AVATARS, ME, STORAGE_TAG, STATISTIC_DISTRIBUTE, INPUT_OUTPUT_ORDER];
 
 const fetchHttpClient = (url, options = {}) => {
     if (!options.headers) {

@@ -16,5 +16,6 @@ export const button = {
     update: 'Cập nhật',
     changePassword: 'Đổi mật khẩu',
     choose: 'Chọn',
-    confirm: 'Xác nhận'
+    confirm: 'Xác nhận',
+    complete: 'Hoàn thành'
 }

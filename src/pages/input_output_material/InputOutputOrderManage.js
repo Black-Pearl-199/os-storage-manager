@@ -2,7 +2,7 @@ import React from "react";
 import { withStyles } from "@material-ui/core";
 // import { List } from "react-admin";
 import { withTranslate } from 'react-admin';
-import { statistic_list_distribute } from "../../../data-test";
+import { input_output_material } from "../../data-test";
 import {
     MySearchableDataGrid,
     listStylesNoActions,
@@ -11,14 +11,14 @@ import {
     MyField,
     MyBootstrapInput,
     MyFilterBox,
-} from "../../../components";
-import { STATISTIC_DISTRIBUTE, LOAI_XE } from "../../../configurations";
+} from "../../components";
+import { INPUT_OUTPUT_ORDER, LENH_NHAP_XUAT } from "../../configurations";
 
 export default withTranslate(withStyles(listStylesNoActions)(
     ({ classes, hasShow, hasList, hasEdit, hasCreate, ...props }) => (
         <div>
             <FormHeading
-                title="page.statistic_distribute.name"
+                title="page.material.title.list"
                 {...props}
                 hasBack={false}
             />
@@ -34,23 +34,20 @@ export default withTranslate(withStyles(listStylesNoActions)(
             > */}
             <MySearchableDataGrid
                 {...props}
-                data={statistic_list_distribute}
+                data={input_output_material}
                 ids={[0, 1, 2, 3]}
                 className="w-100 my-3"
                 classes={classes}
-                searchEnable
+                searchEnable={false}
                 rowClick={null}
                 currentSort={{}}
-                exportable
             >
-                <MyField hideLabel source="so_dang_ky" />
-                <MyField hideLabel source="danh_diem" />
-                <MyField hideLabel source="ten_goi" />
-                <MyField hideLabel source="quy_cach" />
-                <MyField hideLabel source="muc_du_tru" />
-                <MyField hideLabel source="vi_tri" />
-                <MyField hideLabel source="khoi_luong" />
-                <MyField hideLabel source="don_gia" />
+                <MyField hideLabel source="loai" />
+                <MyField hideLabel source="so_lenh" />
+                <MyField hideLabel source="don_vi_nhap_xuat" />
+                <MyField hideLabel source="don_vi_nhap_xuat" />
+                <MyField hideLabel source="ngay_giao_nhan" />
+                <MyField hideLabel source="ngay_ra_lenh" />
             </MySearchableDataGrid>
             {/* </List> */}
             {/* </Row> */}
@@ -62,7 +59,7 @@ const StatisticDistributeFilter = (props) => (
     <MyFilterBox
         {...props}
         // initFilter={defaultFilters}
-        resource={STATISTIC_DISTRIBUTE}
+        resource={INPUT_OUTPUT_ORDER}
         className="mb-2 filter-box"
         // convertValue={convertValue}
         buttonClasses="pl-3 d-flex flex-column-reverse justify-content-around"
@@ -70,9 +67,12 @@ const StatisticDistributeFilter = (props) => (
     >
         <MyBootstrapInput
             component="select"
-            source="loai_xe"
-            choices={LOAI_XE}
+            source="lenh_nhap_xuat"
+            label={`resources.${INPUT_OUTPUT_ORDER}.fields.phan_loai`}
+            choices={LENH_NHAP_XUAT}
+            allowEmpty
             translateChoice={false}
+            emptyChoiceLabel="time_range.all"
             groupClasses="col-xl-3 col-lg-4 col-md-6 col-sm-6 form-group"
             labelClasses="label-filter-sm"
         />

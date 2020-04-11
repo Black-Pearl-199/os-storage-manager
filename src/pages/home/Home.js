@@ -14,8 +14,9 @@ import { SideBar } from "../../components/layouts";
 export const URL_CHANGE_PASS = '/change_password';
 export const URL_PROFILE = '/profile';
 export const URL_STORAGE_MANAGE = '/storage-manage';
-export const URL_ADD_STORAGE_TAG = '/add-storage-tag';
+export const URL_STORAGE_TAG = '/storage-tag';
 export const URL_STATISTIC_DISTRIBUTE = '/statistic-distribute';
+export const URL_INPUT_OUTPUT_ORDER = '/quan-ly-lenh-nhap-xuat';
 
 const sideBarProps = {
     items: [
@@ -26,20 +27,20 @@ const sideBarProps = {
             eventKey: "/storage",
             subs: [
                 {
-                    url: URL_STORAGE_MANAGE,
-                    eventKey: URL_STORAGE_MANAGE,
+                    url: URL_STORAGE_TAG,
+                    eventKey: URL_STORAGE_TAG,
                     title: 'sidebar.storage.storage_manage'
                 },
                 {
                     url: URL_STATISTIC_DISTRIBUTE,
                     eventKey: URL_STATISTIC_DISTRIBUTE,
                     title: 'sidebar.storage.statistic_distribute'
-                },
-                {
-                    url: URL_ADD_STORAGE_TAG,
-                    eventKey: URL_ADD_STORAGE_TAG,
-                    title: 'sidebar.storage.add_storage_tag'
-                },
+                }
+                // {
+                //     url: `${URL_STORAGE_TAG}/create`,
+                //     eventKey: `${URL_STORAGE_TAG}/create`,
+                //     title: 'sidebar.storage.add_storage_tag'
+                // },
             ]
         },
         {
@@ -49,18 +50,18 @@ const sideBarProps = {
             eventKey: "/material",
             subs: [
                 {
-                    url: URL_STORAGE_MANAGE,
-                    eventKey: URL_STORAGE_MANAGE,
+                    url: URL_INPUT_OUTPUT_ORDER,
+                    eventKey: URL_INPUT_OUTPUT_ORDER,
                     title: 'sidebar.material.input_output_manage'
                 },
                 {
-                    url: URL_STATISTIC_DISTRIBUTE,
-                    eventKey: URL_STATISTIC_DISTRIBUTE,
+                    url: 'them-lenh-nhap',
+                    eventKey: 'them-lenh-nhap',
                     title: 'sidebar.material.add_input_order'
                 },
                 {
-                    url: URL_STATISTIC_DISTRIBUTE,
-                    eventKey: URL_STATISTIC_DISTRIBUTE,
+                    url: 'them-lenh-xuat',
+                    eventKey: 'them-lenh-xuat',
                     title: 'sidebar.material.add_output_order'
                 }
             ]
