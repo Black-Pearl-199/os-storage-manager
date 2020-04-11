@@ -2,11 +2,11 @@
 @import "../abstracts/variables";
 
 .logo {
-  content: url($images-root + "logo-medium.png");
+  content: url($images-root + "logo.png");
   @include phones {
-    content: url($images-root + "logo-small.png") !important;
+    content: url($images-root + "logo.png") !important;
   }
   @include tablets {
-    content: url($images-root + "logo-small.png") !important;
+    content: url($images-root + "logo.png") !important;
   }
 }

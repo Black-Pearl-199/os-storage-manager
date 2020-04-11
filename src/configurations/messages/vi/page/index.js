@@ -91,7 +91,24 @@ export const page = {
     },
     storage: {
         title: {
-            create: 'THÊM THẺ KHO MỚI - MẪU SỐ: 03/VT'
+            create: 'THÊM THẺ KHO MỚI - MẪU SỐ: 03/VT',
+            list: 'QUẢN LÝ THẺ KHO',
+            edit: 'SỬA THÔNG TIN THẺ KHO - MẪU 03/VT'
+        },
+        notification: {
+            delete: {
+                confirm: 'Bạn có chắc chắn xóa thẻ kho này không?'
+            }
+        }
+    },
+    statistic_distribute: {
+        name: 'KIỂM KÊ PHÂN LOẠI VẬT TƯ HÀNG HÓA'
+    },
+    material: {
+        title: {
+            list: 'QUẢN LÝ LỆNH NHẬP / XUẤT',
+            createInputOrder: 'THÊM LỆNH NHẬP',
+            createOutputOrder: 'THÊM LỆNH XUẤT'
         }
     }
 }

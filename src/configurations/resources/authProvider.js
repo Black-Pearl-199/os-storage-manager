@@ -107,7 +107,7 @@ export default (type, params) => {
 
     switch (type) {
         case AUTH_LOGIN:
-            saveAccessTokenData(token, false);
+            return saveAccessTokenData(token, false);
             // const {username, password, remember} = params;
             // const basicAuth = `Basic ${btoa(`${process.env.REACT_APP_USER}:${process.env.REACT_APP_PASSWORD}`)}`;
             // let formData = new FormData();
@@ -187,7 +187,8 @@ export default (type, params) => {
             const {message, status, body} = params;
             console.log('fetch error', message, status, body);
             console.groupEnd();
-            return (status > 400 && status !== 500 && status !== 404) ? Promise.reject() : Promise.resolve();
+            // return (status > 400 && status !== 500 && status !== 404) ? Promise.reject() : Promise.resolve();
+            return Promise.resolve();    
         case AUTH_GET_PERMISSIONS:
             const iTechUser = JSON.parse(localStorage.getItem(AUTH_USER));
             console.log('current iTech user', iTechUser);

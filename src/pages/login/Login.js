@@ -11,7 +11,7 @@ import { compose } from "recompose";
 import Checkbox from "@material-ui/core/Checkbox";
 import { saveAccessTokenData } from '../../configurations/resources/authProvider';
 import { checkFormValidate } from "../../utils";
-import { URL_STORAGE_MANAGE } from "../home/Home";
+import { URL_STORAGE_TAG } from "../home/Home";
 import { STORAGES } from "../../configurations";
 import version from "../../version";
 import { token } from "../../data-test";
@@ -41,10 +41,10 @@ class Login extends React.Component {
 
         if (!this.checkFormValidate()) return;
         saveAccessTokenData(token, false);
-        history.push(URL_STORAGE_MANAGE);
+        history.push(URL_STORAGE_TAG);
 
         // let { username, password, remember } = this.state;
-        // this.props.userLogin({ username, password, remember }, URL_STORAGE_MANAGE);
+        // this.props.userLogin({ username, password, remember }, URL_STORAGE_TAG);
 
     };
 

@@ -212,10 +212,10 @@ export const MyCustomInput = enhance((props) => {
                                required={required}
                                className={classNames(type !== 'checkbox' ? ["form-control", small ? "form-control-sm" : '', "w-100"] : '', className)}
                                title={translatedLabel}
-                               placeholder={!!hideLabel ? translatedLabel : null} {...rest}>
+                               placeholder={placeholder} {...rest}>
                             {component === 'select' ?
                                 <Fragment>
-                                    {!required && <option value="">{hideLabel ? translatedLabel : null}</option>}
+                                    {!required && <option value="">{placeholder}</option>}
                                     {choices.map((choice, index) => (<option value={choice[optionValue]}
                                                                              key={index}>{translate && !skipFormat ? translate(choice[optionText]) : choice[optionText]}</option>))}
                                 </Fragment> : null}

@@ -1,4 +1,4 @@
-import variables from "../assets/scss/abstracts/_variables.scss";
+import variables from '../assets/scss/abstracts/_variables.scss';
 
 
 // style config cho các component Card/CardContainer/CardContainerInner của react-admin
@@ -6,15 +6,15 @@ export const listStylesNoActions = {
     card: {
         backgroundColor: 'transparent !important',
         boxShadow: 'none !important',
-        borderRadius: "0.25rem",
+        borderRadius: '0.25rem',
         // overflowY: 'inherit',
-        "&>div": {
+        '&>div': {
             marginRight: 'auto',
             marginLeft: 'auto',
             display: 'block',
             paddingLeft: 15,
             paddingRight: 15,
-            "&>[filters]": {
+            '&>[filters]': {
                 backgroundColor: '#ffffff',
                 overflow: 'hidden',
                 boxShadow: '10px 10px 15px -20px rgba(0, 0, 0, 0.6)',
@@ -26,8 +26,8 @@ export const listStylesNoActions = {
                 wordWrap: 'break-word',
                 backgroundClip: 'border-box',
                 border: '1px solid rgba(0,0,0,.125)',
-                borderRadius: '.25rem',
-            },
+                borderRadius: '.25rem'
+            }
         },
         "& button[class*='button-add']": {
             color: variables.primaryTextColor,
@@ -35,53 +35,39 @@ export const listStylesNoActions = {
             borderRadius: '1rem',
             boxShadow: '0px 1px 5px 0px rgba(0,0,0,0.2), 0px 2px 2px 0px rgba(0,0,0,0.14), 0px 3px 1px -2px rgba(0,0,0,0.12)',
             marginTop: '0.25rem !important',
-            "&:hover": {
-                backgroundColor: variables.primaryBgDarkHover,
-            },
-            "&:focus": {
-                outline: 'none'
-            }
+            '&:hover': { backgroundColor: variables.primaryBgDarkHover },
+            '&:focus': { outline: 'none' }
         },
         "& button[class*='button-remove']": {
-            // color: '#e9322d',
+        // color: '#e9322d',
             color: variables.primaryTextColor,
             backgroundColor: '#e9322d',
             borderRadius: '1rem',
             boxShadow: '0px 1px 5px 0px rgba(0,0,0,0.2), 0px 2px 2px 0px rgba(0,0,0,0.14), 0px 3px 1px -2px rgba(0,0,0,0.12)',
-            "&:hover": {
-                backgroundColor: '#e85656',
-            },
-            "&:focus": {
-                outline: 'none'
-            }
+            '&:hover': { backgroundColor: '#e85656' },
+            '&:focus': { outline: 'none' }
         },
-        "& div.picker": {
+        '& div.picker': {
             flex: '1 1 auto',
-            "&>div": {
-                "& label+div": {
-                    margin: "0",
-                    backgroundColor: "white",
-                    borderRadius: "0.25rem",
-                    padding: "0",
-                    "& input": {
-                        padding: "0.25rem 0.5rem",
-                        fontSize: "0.875rem",
-                        lineHeight: "1.5",
-                        borderRadius: "0.2rem"
-                    },
+            '&>div': {
+                '& label+div': {
+                    margin: '0',
+                    backgroundColor: 'white',
+                    borderRadius: '0.25rem',
+                    padding: '0',
+                    '& input': {
+                        padding: '0.25rem 0.5rem',
+                        fontSize: '0.875rem',
+                        lineHeight: '1.5',
+                        borderRadius: '0.2rem'
+                    }
                 },
-                "& div:last-child": {
-                    "&:after, &:before": {
-                        content: "none"
-                    },
-                },
+                '& div:last-child': { '&:after, &:before': { content: 'none' } },
                 width: '100%',
                 marginTop: '0',
-                border: "solid 1px #ced4da",
-                borderRadius: "0.25rem",
-                "&:hover": {
-                    borderColor: variables.primaryBgHoverColor
-                }
+                border: 'solid 1px #ced4da',
+                borderRadius: '0.25rem',
+                '&:hover': { borderColor: variables.primaryBgHoverColor }
             }
         },
         '& button:not(.react-datepicker__navigation):not(.btn-pick-date), & a[role=button]': {
@@ -92,30 +78,28 @@ export const listStylesNoActions = {
             padding: '0 !important',
             display: 'flex',
             flexWrap: 'wrap'
-            // marginLeft: -15,
-            // marginRight: -15
+        // marginLeft: -15,
+        // marginRight: -15
         },
         '& fieldset[filter] label': {
-            // backgroundColor: 'red',
+        // backgroundColor: 'red',
             flexBasis: '33%'
         },
-        "& [role='toolbar']": {
-            background: 'transparent'
-        }
+        "& [role='toolbar']": { background: 'transparent' }
     }
 };
 
 export const paginationStyles = {
     pagination: {
         display: 'flex',
-        "& button": {
+        '& button': {
             marginRight: '0.25rem',
             position: 'relative',
             border: '1px solid #455F6D',
-            minWidth: variables.paginationBtnWidth + ' !important',
-            minHeight: variables.paginationBtnHeight + ' !important',
-            width: variables.paginationBtnWidth + ' !important',
-            height: variables.paginationBtnHeight + ' !important',
+            minWidth: `${variables.paginationBtnWidth} !important`,
+            minHeight: `${variables.paginationBtnHeight} !important`,
+            width: `${variables.paginationBtnWidth} !important`,
+            height: `${variables.paginationBtnHeight} !important`,
             lineHeight: variables.paginationBtnHeight,
             textAlign: 'center',
             padding: '0 !important',
@@ -124,18 +108,14 @@ export const paginationStyles = {
             // color: "#455F6D",
             borderColor: '#dee2e6',
             borderRadius: '.25rem',
-            "&:hover": {
+            '&:hover': {
                 color: '#ffffff',
                 backgroundColor: '#455F6D',
                 background: 'none'
             },
-            "&:focus": {
-                outline: 'none'
-            }
+            '&:focus': { outline: 'none' }
         },
-        "& ul span": {
-            padding: '0 1rem 0 0.75rem'
-        },
+        '& ul span': { padding: '0 1rem 0 0.75rem' },
         '&>div': {
             height: 'auto',
             minHeight: 'auto'
@@ -146,11 +126,11 @@ export const paginationStyles = {
 
 export const buttonStyles = {
     button: {
-        backgroundColor: variables.primaryBgColor + ' !important',
-        color: variables.primaryTextColor + ' !important',
+        backgroundColor: `${variables.primaryBgColor} !important`,
+        color: `${variables.primaryTextColor} !important`,
         borderRadius: '0.25rem !important',
         '&:hover': {
-            backgroundColor: variables.primaryBgHoverColor + '!important',
+            backgroundColor: `${variables.primaryBgHoverColor}!important`,
             color: variables.primaryTextColor
         },
         '&:disabled': {
@@ -158,23 +138,21 @@ export const buttonStyles = {
             backgroundColor: '#6c757d',
             borderColor: '#6c757d',
             cursor: 'not-allowed',
-            opacity: "0.65"
+            opacity: '0.65'
         },
-        '&[class*=Button-floating][class*=Button-fab]': {
-            borderRadius: '50% !important'
-        }
+        '&[class*=Button-floating][class*=Button-fab]': { borderRadius: '50% !important' }
     }
 };
 
 export const buttonGreenStyles = {
     button: {
-        backgroundColor: variables.primaryBgDark + ' !important',
-        color: variables.primaryTextColor + ' !important',
+        backgroundColor: `${variables.primaryBgDark} !important`,
+        color: `${variables.primaryTextColor} !important`,
         minHeight: 34,
         minWidth: 129,
         borderRadius: '20px !important',
         '&:hover': {
-            backgroundColor: variables.primaryBgDarkHover + '!important',
+            backgroundColor: `${variables.primaryBgDarkHover}!important`,
             color: variables.primaryTextColor
         },
         '&:disabled': {
@@ -182,11 +160,9 @@ export const buttonGreenStyles = {
             backgroundColor: '#6c757d',
             borderColor: '#6c757d',
             cursor: 'not-allowed',
-            opacity: "0.65"
+            opacity: '0.65'
         },
-        '&[class*=Button-floating][class*=Button-fab]': {
-            borderRadius: '50% !important'
-        }
+        '&[class*=Button-floating][class*=Button-fab]': { borderRadius: '50% !important' }
     }
 };
 
@@ -197,58 +173,49 @@ export const toolbarStyles = {
 };
 
 export const inputFormControlStyles = {
-    margin: "0",
-    backgroundColor: "white",
-    border: "solid 1px #ced4da",
-    borderRadius: "0.25rem",
-    padding: "0",
+    margin: '0',
+    backgroundColor: 'white',
+    border: 'solid 1px #ced4da',
+    borderRadius: '0.25rem',
+    padding: '0',
     // "&:hover": {
     //     borderColor: variables.primaryBgHoverColor
     // },
-    "& input": {
-        padding: "0.375rem 0.75rem",
-        lineHeight: "1.5",
-        height: "calc(1.25rem + 2px)",
+    '& input': {
+        padding: '0.375rem 0.75rem',
+        lineHeight: '1.5',
+        height: 'calc(1.25rem + 2px)'
     }
-
 };
 
 export const filterStyles = {
     button: {},
     form: {
-        width: "100%",
-        "& div[data-source^=row]": {
-            width: "100%"
-        },
+        width: '100%',
+        '& div[data-source^=row]': { width: '100%' },
         // fontSize: "14px",
         // "& .btn": {
         //     fontSize: "14px"
         // },
-        '& div.filter-field': {
-            '& > div:last-child': {
-                width: "0 !important"
-            }
-        }
+        '& div.filter-field': { '& > div:last-child': { width: '0 !important' } }
     }
 };
 
 export const tableStyles = {
     table: {
-        '& .MuiTableRow-root': {
-            height: '2rem ! important'
-        },
+        '& .MuiTableRow-root': { height: '2rem ! important' },
         '& .MuiIconButton-root ': {
             height: 'auto !important',
-            width: 'auto !important',
+            width: 'auto !important'
         },
         '& td': {
             verticalAlign: 'inherit',
-            whiteSpace: 'nowrap',
+            whiteSpace: 'nowrap'
         },
         '& thead': {
             '& th': {
                 verticalAlign: 'inherit',
-                whiteSpace: 'nowrap',
+                whiteSpace: 'nowrap'
             },
             '& td': {
                 fontWeight: 'bold',
@@ -260,7 +227,7 @@ export const tableStyles = {
             padding: '.3rem !important',
             '&.column-undefined': {
                 paddingTop: '.1rem !important',
-                paddingBottom: '.1rem !important',
+                paddingBottom: '.1rem !important'
             },
             '& > span': {
                 padding: '0',
@@ -277,8 +244,6 @@ export const inputStyles = {
             margin: 0,
             justifyContent: 'flex-start'
         },
-        '& span:last-child span': {
-            display: 'none'
-        },
+        '& span:last-child span': { display: 'none' }
     }
 };
