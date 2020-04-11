@@ -70,6 +70,11 @@ export const commons = {
                 clientName: 'Tên ứng dụng bắt buộc',
                 secret: 'Khóa bí mật là bắt buộc',
                 authorizedGrantTypes: 'Ủy quyền là bắt buộc',
+                ten_kho: 'Tên kho là bắt buộc',
+                so_gia_hang: 'Tổng số giá hàng là bắt buộc',
+                so_tang: 'Tổng số tầng là bắt buộc',
+                so_o: 'Tổng số ô là bắt buộc',
+                ten_phan_loai: 'Tên phân loại là bắt buộc'
             },
             update: {
                 notChange: 'Bạn chưa thay đổi dữ liệu!'
@@ -97,7 +102,10 @@ export const commons = {
             fullName: 'Tên bệnh nhân có ít nhất 3 kí tự, chỉ bao gồm chữ cái, số, không chứa kí tự đặc biệt',
             city: 'Tỉnh/Thành phố có ít nhất 3 kí tự, chỉ bao gồm chữ cái, số, không chứa kí tự đặc biệt',
             username: 'Tên đăng nhập có từ 3 đến 50 kí tự, chỉ bao gồm chữ cái, số. Xin thử lại',
-            registeredRedirectURIs: 'Đường dẫn URL không đúng định dạng.'
+            registeredRedirectURIs: 'Đường dẫn URL không đúng định dạng.',
+            so_gia_hang: 'Tổng số giá hàng là một số lớn hơn hoặc bằng 1',
+            so_tang: 'Tổng số tầng là một số lớn hơn hoặc bằng 1',
+            so_o: 'Tổng số ô là một số lớn hơn hoặc bằng 1'
         },
         cannotDeleteResource: 'Không thể xóa tài nguyên %{id} do đang được sử dụng!!!',
         cannotCreateUser: 'Không thể tạo tài khoản! Vui lòng thử lại hoặc liên hệ với quản trị viên.',

@@ -44,7 +44,7 @@ class EditStorageTag extends Component {
         return (
             <>
                 <FormHeading
-                    title="page.storage.title.edit"
+                    title="page.storage_tag.title.edit"
                     {...rest}
                     hasBack={!standAlone}
                 />

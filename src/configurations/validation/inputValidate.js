@@ -54,7 +54,17 @@ export const inputValidate = {
     registeredRedirectURIs: {
         // eslint-disable-next-line no-useless-escape
         pattern: /^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/
-    }
+    },
+    so_gia_hang: {
+        pattern: /^(?:[1-9]|\d\d\d*)$/
+    },
+    so_tang: {
+        pattern: /^(?:[1-9]|\d\d\d*)$/
+    },
+    so_o: {
+        pattern: /^(?:[1-9]|\d\d\d*)$/
+    },
+
 };
 
 export const msgPrefix = 'commons.message.invalid';
@@ -103,6 +113,10 @@ const validPatternForSourceCanNull =
                 return pattern.test(normalizeVal) ? undefined : props.translate(`${msgPrefix}.${source}`);
             }
 };
+
+export const testSoGiaHang = validPattern("so_gia_hang");
+export const testSoTang = validPattern("so_tang");
+export const testSoO = validPattern("so_o");
 
 export const testPid = validPattern("pid");
 export const testCid = validPattern("cid");

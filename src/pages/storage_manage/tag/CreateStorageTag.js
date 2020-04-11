@@ -43,11 +43,11 @@ class CreateStorageTag extends Component {
         return (
             <>
                 <FormHeading
-                    title="page.storage.title.create"
+                    title="page.storage_tag.title.create"
                     {...rest}
                     hasBack={!standAlone}
                 />
-                <Row className="my-3">
+                <Row>
                     <Create {...rest} className="w-100" classes={classes}>
                         <SimpleForm
                             redirect={"list"}

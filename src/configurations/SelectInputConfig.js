@@ -84,3 +84,10 @@ export const LENH_NHAP_XUAT = [
     {id: 'lẹnh_nhap', name: 'Lệnh nhập'},
     {id: 'lenh_xuat', name: 'Lệnh xuất'}
 ]
+
+export const CAP_DO = [
+    {id: 'admin', name: 'Admin'},
+    {id: 'quan_ly_cap_cao', name: 'Quản lý cấp cao'},
+    {id: 'quan_ly_kho', name: 'Quản lý kho'}
+]
+

@@ -1,20 +1,13 @@
 export const storage = {
-    name: 'Thẻ kho',
+    name: 'Kho',
     fields: {
-        phan_loai: 'Phân loại',
-        danh_diem: 'Danh điểm',
-        so_dang_ky: 'Số đăng ký',
-        to_so: 'Tờ số',
-        ten_goi: 'Tên gọi',
-        ky_hieu_quy_cach: 'K.H quy cách',
-        muc_du_tru: 'Mực dự trữ',
-        vi_tri: 'Vị trí',
-        gia_hang_so: 'Giá hàng số',
-        gia: 'Giá',
-        tang: 'Tầng',
-        o_so: 'Ô số',
-        don_vi_tinh: 'Đơn vị tính',
-        khoi_luong: 'K.lượng (kg)',
-        don_gia: 'Đơn giá (đ)'
+        id: 'Mã kho',
+        ten_kho: 'Tên kho',
+        dia_chi: 'Địa chỉ',
+        ngay_tao: 'Ngày tạo',
+        ngay_cap_nhat: 'Ngày cập nhât',
+        so_gia_hang: 'Tổng số giá hàng',
+        so_tang: 'Tổng số tầng',
+        so_o: 'Tổng số ô'
     }
 }

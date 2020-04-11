@@ -10,21 +10,25 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import SwitchAllRoutes from "./SwitchAllRoutes";
 import { SideBar } from "../../components/layouts";
+import { MATERIAL_DISTRIBUTE, ACCOUNT } from "../../configurations";
 
 export const URL_CHANGE_PASS = '/change_password';
 export const URL_PROFILE = '/profile';
 export const URL_STORAGE_MANAGE = '/storage-manage';
 export const URL_STORAGE_TAG = '/storage-tag';
+export const URL_STORAGE = '/storage';
 export const URL_STATISTIC_DISTRIBUTE = '/statistic-distribute';
 export const URL_INPUT_OUTPUT_ORDER = '/quan-ly-lenh-nhap-xuat';
+export const URL_MATERIAL_DISTRIBUTE = `/${MATERIAL_DISTRIBUTE}`;
+export const URL_ACCOUNT = `/${ACCOUNT}`;
 
 const sideBarProps = {
     items: [
         {
-            url: "/storage",
+            url: "/the-kho",
             title: "sidebar.storage.title",
             icon: faCalendar,
-            eventKey: "/storage",
+            eventKey: "/the-kho",
             subs: [
                 {
                     url: URL_STORAGE_TAG,
@@ -134,34 +138,19 @@ const sideBarProps = {
             eventKey: "/general_manage",
             subs: [
                 {
-                    url: URL_STORAGE_MANAGE,
-                    eventKey: URL_STORAGE_MANAGE,
+                    url: URL_STORAGE,
+                    eventKey: URL_STORAGE,
                     title: 'sidebar.general_manage.storage'
                 },
                 {
-                    url: URL_STATISTIC_DISTRIBUTE,
-                    eventKey: URL_STATISTIC_DISTRIBUTE,
-                    title: 'sidebar.general_manage.add_storage'
-                },
-                {
-                    url: URL_STATISTIC_DISTRIBUTE,
-                    eventKey: URL_STATISTIC_DISTRIBUTE,
+                    url: URL_MATERIAL_DISTRIBUTE,
+                    eventKey: URL_MATERIAL_DISTRIBUTE,
                     title: 'sidebar.general_manage.cargo_distribute'
                 },
                 {
-                    url: URL_STORAGE_MANAGE,
-                    eventKey: URL_STORAGE_MANAGE,
-                    title: 'sidebar.general_manage.add_cargo_distribute'
-                },
-                {
-                    url: URL_STATISTIC_DISTRIBUTE,
-                    eventKey: URL_STATISTIC_DISTRIBUTE,
+                    url: URL_ACCOUNT,
+                    eventKey: URL_ACCOUNT,
                     title: 'sidebar.general_manage.account'
-                },
-                {
-                    url: URL_STATISTIC_DISTRIBUTE,
-                    eventKey: URL_STATISTIC_DISTRIBUTE,
-                    title: 'sidebar.general_manage.add_account'
                 }
             ]
         }

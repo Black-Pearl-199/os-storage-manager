@@ -17,16 +17,21 @@ export const AVATARS = 'avatar';
 export const ME = 'me';
 
 export const STORAGE_TAG = 'storage_tag';
+export const STORAGE = 'storage';
 export const STATISTIC_DISTRIBUTE = 'statistic_distribute';
 
+export const MATERIAL_DISTRIBUTE = 'material_distribute';
+
 export const INPUT_OUTPUT_ORDER = 'input_output_order';
+
+export const ACCOUNT = 'account';
 
 export const ADMIN_ALL = [
     USERS,
     PASSWORDS
 ];
 
-export const RESOURCES = [...ADMIN_ALL, OPERATION_RESOURCES, SCOPES, AVATARS, ME, STORAGE_TAG, STATISTIC_DISTRIBUTE, INPUT_OUTPUT_ORDER];
+export const RESOURCES = [...ADMIN_ALL, ACCOUNT, OPERATION_RESOURCES, SCOPES, AVATARS, ME, STORAGE_TAG, STATISTIC_DISTRIBUTE, INPUT_OUTPUT_ORDER, STORAGE, MATERIAL_DISTRIBUTE];
 
 const fetchHttpClient = (url, options = {}) => {
     if (!options.headers) {

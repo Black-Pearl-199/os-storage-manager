@@ -10,7 +10,10 @@ import {
     testPatternUsername,
     testPhoneNumber,
     testPid,testEmailNull,
-    testCid, testCTypeid, testPatternPasswordNotRequired
+    testCid, testCTypeid, testPatternPasswordNotRequired,
+    testSoGiaHang,
+    testSoTang,
+    testSoO
 } from "./inputValidate";
 
 const msgPrefixRequired = `${msgPrefix}.required`;
@@ -74,5 +77,12 @@ export const validateAuthorizedGrantTypes = [required(`${msgPrefixRequired}.auth
 export const validateTestEmail = testEmailNull;
 export const validateStartDate = [required(`${msgPrefixRequired}.startDate`)];
 export const validateActive = [required(`${msgPrefixRequired}.active`)];
+
+export const validateTenKho = [required(`${msgPrefixRequired}.ten_kho`)];
+export const validateSoGiaHang = [required(`${msgPrefixRequired}.so_gia_hang`), testSoGiaHang];
+export const validateSoTang = [required(`${msgPrefixRequired}.so_tang`), testSoTang];
+export const validateSoO = [required(`${msgPrefixRequired}.so_o`), testSoO];
+
+export const validateTenPhanLoai = [required(`${msgPrefixRequired}.ten_phan_loai`)];
 
 export * from './inputValidate';

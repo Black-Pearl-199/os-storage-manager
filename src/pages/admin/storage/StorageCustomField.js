@@ -4,9 +4,9 @@ import { connect } from 'react-redux';
 import { compose } from 'recompose';
 import { withTranslate } from "react-admin";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+import { faTrashAlt, faPenAlt } from '@fortawesome/free-solid-svg-icons';
 import { Button } from 'react-bootstrap';
-import { MyField, NOTIFICATION_TYPE } from '../../../components';
+import { NOTIFICATION_TYPE } from '../../../components';
 import {
     STORAGE_TAG,
     showEnhanceNotification,
@@ -15,27 +15,11 @@ import {
 } from "../../../configurations";
 import get from 'lodash/get';
 
-export const LocationStorage = withTranslate((props) => {
-    const { translate, record = {}, ...rest } = props;
-    const { vi_tri_gia_hang, vi_tri_tang, vi_tri_o } = record;
-    const displayText = `${translate(
-        "resources.storage_tag.fields.gia"
-    )}: ${vi_tri_gia_hang}; ${translate(
-        "resources.storage_tag.fields.tang"
-    )}:${vi_tri_tang}; ${translate(
-        "resources.storage_tag.fields.o_so"
-    )}:${vi_tri_o}`;
-    record.vi_tri = displayText;
-    return (
-        <MyField {...rest} record={record} />
-    )
-});
-
 const enhance = compose(
     withTranslate,
     connect(undefined, { showEnhanceNotification, ITCrudDelete, ITCrudGetList })
 );
-export const DeleteStorageTagButton = enhance(props => {
+export const DeleteStorageButton = enhance(props => {
     const {
         record = {},
         showEnhanceNotification,
@@ -111,19 +95,46 @@ export const DeleteStorageTagButton = enhance(props => {
     );
 });
 
-DeleteStorageTagButton.propTypes = {
+DeleteStorageButton.propTypes = {
     record: PropTypes.object,
     showEnhanceNotification: PropTypes.func,
     ITCrudDelete: PropTypes.func,
     ITCrudGetList: PropTypes.func
 };
 
-export const DetailStorageTag = (props) => {
+export const EditStorageField = (props) => {
+    const { history, record = {}, basePath } = props;
+    const { id } = record;
+    const redirectEditPage = () => {
+        history.push(`${basePath}/${id}`);
+    }
+    return (
+        <div className={"d-flex"}>
+            <Button
+                variant={"itech"}
+                size={"sm"}
+                className={"btn-itech-icon-primary"}
+                onClick={redirectEditPage}
+            >
+                <FontAwesomeIcon icon={faPenAlt} />
+            </Button>
+        </div>
+    )
+};
+
+EditStorageField.propTypes = {
+    history: PropTypes.func,
+    basePath: PropTypes.string,
+    record: PropTypes.object,
+    resource: PropTypes.string
+};
+
+export const DetailStorage = (props) => {
     const { history, record = {}, basePath, source } = props;
     const { id } = record;
     const displayText = get(record, source);
     const redirectDetailPage = () => {
-        history.push(`${basePath}/${id}/show`);
+        history.push(`${basePath}/${id}`);
     }
     return (
         <Button variant="link" size="sm" className="w-100 text-left px-0" onClick={redirectDetailPage}>
@@ -132,7 +143,7 @@ export const DetailStorageTag = (props) => {
     )
 };
 
-DetailStorageTag.propTypes = {
+DetailStorage.propTypes = {
     history: PropTypes.func,
     basePath: PropTypes.string,
     record: PropTypes.object,

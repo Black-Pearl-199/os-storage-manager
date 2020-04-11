@@ -40,7 +40,7 @@ export default withTranslate(withStyles(listStylesNoActions)(
     ({ classes, hasShow, hasList, hasEdit, hasCreate, ...props }) => (
         <div>
             <FormHeading
-                title="page.storage.title.list"
+                title="page.storage_tag.title.list"
                 {...props}
                 hasBack={false}
             >
@@ -66,7 +66,7 @@ export default withTranslate(withStyles(listStylesNoActions)(
                 className="w-100 my-3"
                 classes={classes}
                 searchEnable
-                rowClick="show"
+                rowClick={null}
                 currentSort={{}}
                 exportable
             >

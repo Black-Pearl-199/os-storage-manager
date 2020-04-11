@@ -89,17 +89,32 @@ export const page = {
             },
         }
     },
-    storage: {
+    storage_tag: {
         title: {
             create: 'THÊM THẺ KHO MỚI - MẪU SỐ: 03/VT',
             list: 'QUẢN LÝ THẺ KHO',
-            edit: 'SỬA THÔNG TIN THẺ KHO - MẪU 03/VT'
+            edit: 'SỬA THÔNG TIN THẺ KHO - MẪU 03/VT',
+            show: 'THẺ KHO - MẪU SỐ: 03/VT'
         },
         notification: {
             delete: {
                 confirm: 'Bạn có chắc chắn xóa thẻ kho này không?'
             }
         }
+    },
+    storage: {
+        title: {
+            create: 'Thêm kho mới',
+            edit: 'Sửa thông tin kho',
+            list: 'Quản lý kho',
+            show: 'Thông tin kho'
+        },
+        notification: {
+            delete: {
+                confirm: 'Bạn có muốn xóa kho này không? Lưu ý rằng chỉ được xóa kho trống \n(Không có thẻ kho nào).'
+            }
+        }
+    
     },
     statistic_distribute: {
         name: 'KIỂM KÊ PHÂN LOẠI VẬT TƯ HÀNG HÓA'
@@ -109,6 +124,30 @@ export const page = {
             list: 'QUẢN LÝ LỆNH NHẬP / XUẤT',
             createInputOrder: 'THÊM LỆNH NHẬP',
             createOutputOrder: 'THÊM LỆNH XUẤT'
+        }
+    },
+    material_distribute: {
+        title: {
+            list: 'Quản lý phân loại',
+            edit: 'Sửa thông tin phân loại',
+            create: 'Thêm phân loại mới'
+        },
+        notification: {
+            delete: {
+                confirm: 'Bạn có muốn xóa phân loại này không? \nLưu ý rằng chỉ được xóa phân loại không có chứa thẻ kho nào.'
+            }
+        }
+    },
+    account: {
+        title: {
+            list: 'Quản lý tài khoản',
+            edit: 'Sửa thông tin tài khoản',
+            create: 'Thêm tài khoản mới'
+        },
+        notification: {
+            delete: {
+                confirm: 'Bạn có muốn xóa tài khoản này không?'
+            }
         }
     }
 }
