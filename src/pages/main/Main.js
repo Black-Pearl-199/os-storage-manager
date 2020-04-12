@@ -31,6 +31,7 @@ import TabsManager from "../../components/layouts/TabsManager";
 import LanguageSwitcher from "../../components/LanguageSwitcher";
 import { generateTab, getStaff } from "../../utils";
 import { NavLink } from "react-router-dom";
+import { STORAGES } from '../../configurations';
 
 function ClosableTitle(key, title, onClose) {
     return (
@@ -69,13 +70,12 @@ class Main extends React.Component {
         super(props);
         // console.log(props);
         this.state = {
-            tabKey: "home",
+            tabKey: STORAGES[0].id,
             tabs: [],
             // nextPatientId: 1
             lastHomeUrl: "/",
         };
     }
-
     componentDidMount() {
         TabsManager.register(TAB_CONTEXT_MAIN, this);
 
@@ -106,24 +106,13 @@ class Main extends React.Component {
     tabClick = (key) => {
         if (key === LOCALE_VI || key === LOCALE_EN) return;
         this.tabSelect(key);
-        const { tabKey, tabs, lastHomeUrl } = this.state;
+        const { tabKey, lastHomeUrl } = this.state;
         if (tabKey === key) return;
-        if (key === "home") {
-            this.props.history.push(lastHomeUrl);
-        } else if (key === "exit") {
-        } else {
-            let tab = find(tabs, { key: key });
-            if (tab) {
-                if (tabKey === "home") {
-                    this.setState({
-                        lastHomeUrl: this.props.location.pathname,
-                    });
-                }
-
-                // console.log(`user select tab ${key}, redirect to`, `${tab.url}`);
-                this.props.history.push(`${tab.url}`);
-            }
-        }
+        this.setState({
+            lastHomeUrl: this.props.location.pathname,
+        });
+        // console.log(`user select tab ${key}, redirect to`, `${tab.url}`);
+        this.props.history.push(`${lastHomeUrl}`);
     };
 
     activeTab = (key, tab) => {
@@ -246,6 +235,7 @@ class Main extends React.Component {
                 </Nav.Link>
             </Nav.Item>
         ));
+        console.log(listExtendTabs);
 
         let { userLogout } = this.props;
         // console.log(`isLoggedIn=${isLoggedIn}`);
@@ -275,7 +265,7 @@ class Main extends React.Component {
                                     className="itech-tabs"
                                 >
                                     <Row className="navbar navbar-expand-lg navbar-light bg-light nav-iTech px-1">
-                                        <div>
+                                        <div className="d-flex mr-5">
                                             <Navbar.Brand href="#">
                                                 <Image
                                                     className="logo d-inline-block align-top"
@@ -283,19 +273,26 @@ class Main extends React.Component {
                                                     height={"50px"}
                                                 />
                                             </Navbar.Brand>
+                                            <div>
+                                                <h3 style={{ lineHeight: '50px' }}>Kho KT788</h3>
+                                            </div>
                                         </div>
-                                        {/* <h1>Kho KT788</h1> */}
-                                        {/* <Nav id="navItech" className="d-flex flex-row">
-                                            <Nav.Item> */}
-                                        {/* <Nav.Link id="navItech" eventKey="home">
-                                            <h3>Kho KT788</h3>
-                                        </Nav.Link> */}
-                                        <div id="navItech">
-                                            <h3>Kho KT788</h3>
-                                        </div>
-                                        {/* </Nav.Item>
-                                            {listExtendTabs}
+                                        {/* <Nav>
+                                            <Nav.Item style={{ transform: 'translate(0, 6px)' }}>
+                                                <Nav.Link eventKey="kho_1"><h5>KHO 1</h5></Nav.Link>
+                                            </Nav.Item>
+                                            <Nav.Item style={{ transform: 'translate(0, 6px)' }}>
+                                                <Nav.Link eventKey="kho_2"><h5>KHO 2</h5></Nav.Link>
+                                            </Nav.Item>
                                         </Nav> */}
+                                        <Nav variant="tabs" id="navItech" className="d-flex flex-row">
+                                            {/* {listExtendTabs} */}
+                                            {STORAGES.map((item) => (
+                                                <Nav.Item style={{ transform: 'translate(0, 6px)' }}>
+                                                    <Nav.Link eventKey={item.id} className="px-4"><h5>{item.name}</h5></Nav.Link>
+                                                </Nav.Item>
+                                            ))}
+                                        </Nav>
                                         <div className="d-flex flex-row">
                                             <span className="my-auto mr-3 ml-2 font-875rem">
                                                 {translate(
@@ -317,11 +314,11 @@ class Main extends React.Component {
                                         </div>
                                     </Row>
                                     <Row>
-                                        <Tab.Content>
-                                            <Tab.Pane eventKey="home">
+                                        {/* <Tab.Content>
+                                            <Tab.Pane eventKey="home"> */}
                                                 <Home {...this.props} />
-                                            </Tab.Pane>
-                                        </Tab.Content>
+                                            {/* </Tab.Pane>
+                                        </Tab.Content> */}
                                     </Row>
                                 </Tab.Container>
                             </Container>
