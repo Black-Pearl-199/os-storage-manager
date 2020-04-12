@@ -4,7 +4,7 @@ import { compose } from "recompose";
 import { connect } from "react-redux";
 import { withStyles } from "@material-ui/core";
 import { Row } from "react-bootstrap";
-import { storage_data } from '../../../data-test';
+// import { storage_data } from '../../../data-test';
 import {
     FormHeading,
     listStylesNoActions,
