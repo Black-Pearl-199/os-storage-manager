@@ -9,12 +9,12 @@ import {
 } from "react-admin";
 import { compose } from "recompose";
 import Checkbox from "@material-ui/core/Checkbox";
-import { saveAccessTokenData } from '../../configurations/resources/authProvider';
+import { saveAccessTokenData } from "../../configurations/resources/authProvider";
 import { checkFormValidate } from "../../utils";
 import { URL_STORAGE_TAG } from "../home/Home";
 import { STORAGES } from "../../configurations";
 import version from "../../version";
-import { token } from "../../data-test";
+// import { token } from "../../data-test";
 
 class Login extends React.Component {
     constructor(props) {
@@ -36,16 +36,22 @@ class Login extends React.Component {
     };
 
     loginSubmit = (e) => {
-        const { history } = this.props;
+        // const { history } = this.props;
         e.preventDefault();
 
         if (!this.checkFormValidate()) return;
-        saveAccessTokenData(token, false);
-        history.push(URL_STORAGE_TAG);
+        // saveAccessTokenData(token, false);
+        // history.push(URL_STORAGE_TAG);
 
-        // let { username, password, remember } = this.state;
-        // this.props.userLogin({ username, password, remember }, URL_STORAGE_TAG);
-
+        let { username, password, remember, storage } = this.state;
+        localStorage.setItem(
+            "mainState",
+            JSON.stringify({ tabKey: storage, tabs: [], lastHomeUrl: URL_STORAGE_TAG })
+        );
+        this.props.userLogin(
+            { username, password, remember, storage },
+            URL_STORAGE_TAG
+        );
     };
 
     onInputChange = (e) => {
@@ -84,7 +90,9 @@ class Login extends React.Component {
                     </h2>
                 </div>
                 <div className="auth-block mx-auto">
-                    <p className="text-center">Đăng nhập để bắt đầu phiên của bạn</p>
+                    <p className="text-center">
+                        Đăng nhập để bắt đầu phiên của bạn
+                    </p>
                     <form onSubmit={this.loginSubmit}>
                         <div className="form-group mb-3">
                             {/* <label htmlFor="inputUsername3"
@@ -132,7 +140,9 @@ class Login extends React.Component {
                                 disabled={isLoading}
                             >
                                 {STORAGES.map((item) => (
-                                    <option value={item.id} key={item.id}>{item.name}</option>
+                                    <option value={item.id} key={item.id}>
+                                        {item.name}
+                                    </option>
                                 ))}
                             </select>
                             <div className="invalid-feedback" />
@@ -180,7 +190,13 @@ class Login extends React.Component {
 
 const enhance = compose(
     translate,
-    connect(undefined, { userLogin, userCheck, changeLocale, showNotification, saveAccessTokenData })
+    connect(undefined, {
+        userLogin,
+        userCheck,
+        changeLocale,
+        showNotification,
+        saveAccessTokenData,
+    })
 );
 
 export default enhance(Login);

@@ -7,7 +7,7 @@ export const storage_tag = {
         to_so: 'Tờ số',
         ten_goi: 'Tên gọi',
         ky_hieu_quy_cach: 'K.H quy cách',
-        muc_du_tru: 'Mực dự trữ',
+        muc_du_tru: 'Mức dự trữ',
         vi_tri: 'Vị trí',
         gia_hang_so: 'Giá hàng số',
         gia: 'Giá',

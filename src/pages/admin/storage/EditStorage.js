@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Create, SimpleForm } from "react-admin";
+import { Edit, SimpleForm } from "react-admin";
 import { compose } from "recompose";
 import { connect } from "react-redux";
 import { withStyles } from "@material-ui/core";
@@ -31,10 +31,10 @@ class EditStorage extends Component {
                     hasBack={!standAlone}
                 />
                 <Row>
-                    <Create {...rest} className="w-100" classes={classes}>
+                    <Edit {...rest} className="w-100" classes={classes}>
                         <SimpleForm
                             redirect={"list"}
-                            defaultValue={storage_data[0]}
+                            // defaultValue={storage_data[0]}
                             className="container-fluid px-0"
                             toolbar={<MySaveToolbar />}
                         >
@@ -84,7 +84,7 @@ class EditStorage extends Component {
                                 />
                             </MyGroupingInput>
                         </SimpleForm>
-                    </Create>
+                    </Edit>
                 </Row>
             </>
         );

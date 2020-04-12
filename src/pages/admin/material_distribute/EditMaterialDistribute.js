@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import { Create, SimpleForm } from "react-admin";
+import { Edit, SimpleForm } from "react-admin";
 import { compose } from "recompose";
 import { connect } from "react-redux";
 import { withStyles } from "@material-ui/core";
 import { Row } from "react-bootstrap";
-import { material_distribute_data } from '../../../data-test';
+// import { material_distribute_data } from '../../../data-test';
 import {
     FormHeading,
     listStylesNoActions,
@@ -31,10 +31,10 @@ class EditMaterialDistribute extends Component {
                     hasBack={!standAlone}
                 />
                 <Row>
-                    <Create {...rest} className="w-100" classes={classes}>
+                    <Edit {...rest} className="w-100" classes={classes}>
                         <SimpleForm
                             redirect={"list"}
-                            defaultValue={material_distribute_data[0]}
+                            // defaultValue={material_distribute_data[0]}
                             className="container-fluid px-0"
                             toolbar={<MySaveToolbar />}
                         >
@@ -50,7 +50,7 @@ class EditMaterialDistribute extends Component {
                                 />
                             </MyGroupingInput>
                         </SimpleForm>
-                    </Create>
+                    </Edit>
                 </Row>
             </>
         );

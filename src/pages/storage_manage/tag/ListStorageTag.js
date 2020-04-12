@@ -1,13 +1,14 @@
 import React from "react";
 import { withStyles } from "@material-ui/core";
-import { withTranslate } from 'react-admin';
-// import { List } from "react-admin";
+import { withTranslate } from "react-admin";
+import { List } from "react-admin";
+import { Row } from 'react-bootstrap';
 import { storage_tag } from "../../../data-test";
 import {
     MySearchableDataGrid,
     listStylesNoActions,
     FormHeading,
-    // MyCustomPagination,
+    MyCustomPagination,
     MyField,
     MyBootstrapInput,
     MyFilterBox,
@@ -30,70 +31,76 @@ function fakeData(number) {
     for (let index = 1; index <= number; index++) {
         result.push({
             id: index,
-            name: `${index}-test`,
+            name: `${index}`,
         });
     }
     return result;
 }
 
-export default withTranslate(withStyles(listStylesNoActions)(
-    ({ classes, hasShow, hasList, hasEdit, hasCreate, ...props }) => (
-        <div>
-            <FormHeading
-                title="page.storage_tag.title.list"
-                {...props}
-                hasBack={false}
-            >
-                <RedirectCreateButton
-                    basePath={props.basePath}
-                    resource={props.resource}
-                />
-            </FormHeading>
-            <StatisticDistributeFilter {...props} />
-            {/* <Row className="my-3"> */}
-            {/* <List
-                classes={classes}
-                {...props}
-                className="w-100"
-                actions={null}
-                bulkActions={false}
-                pagination={<MyCustomPagination />}
-            > */}
-            <MySearchableDataGrid
-                {...props}
-                data={storage_tag}
-                ids={[0, 1, 2, 3]}
-                className="w-100 my-3"
-                classes={classes}
-                searchEnable
-                rowClick={null}
-                currentSort={{}}
-                exportable
-            >
-                <MyField hideLabel source="phan_loai" />
-                <MyField hideLabel source="so_dang_ky" />
-                <MyField hideLabel source="danh_diem" />
-                <DetailStorageTag hideLabel source="ten_goi" {...props} />
-                <MyField
-                    hideLabel
-                    source="quy_cach"
-                    label="resources.storage_tag.fields.ky_hieu_quy_cach"
-                />
-                <MyField hideLabel source="muc_du_tru" />
-                <LocationStorage hideLabel source="vi_tri" />
-                <MyField hideLabel source="khoi_luong" />
-                <MyField hideLabel source="don_gia" />
-                <DeleteStorageTagButton
+export default withTranslate(
+    withStyles(listStylesNoActions)(
+        ({ classes, hasShow, hasList, hasEdit, hasCreate, ...props }) => (
+            <div>
+                <FormHeading
+                    title="page.storage_tag.title.list"
                     {...props}
-                    label="button.delete"
-                    headerStyle={{ width: "10%" }}
-                />
-            </MySearchableDataGrid>
-            {/* </List> */}
-            {/* </Row> */}
-        </div>
+                    hasBack={false}
+                >
+                    <RedirectCreateButton
+                        basePath={props.basePath}
+                        resource={props.resource}
+                    />
+                </FormHeading>
+                <StatisticDistributeFilter {...props} />
+                <Row className="my-3">
+                    <List
+                        classes={classes}
+                        {...props}
+                        className="w-100"
+                        actions={null}
+                        bulkActions={false}
+                        pagination={<MyCustomPagination />}
+                    >
+                        <MySearchableDataGrid
+                            {...props}
+                            data={storage_tag}
+                            ids={[0, 1, 2, 3]}
+                            className="w-100 my-3"
+                            classes={classes}
+                            searchEnable
+                            rowClick={null}
+                            currentSort={{}}
+                            exportable
+                        >
+                            <MyField hideLabel source="phan_loai" />
+                            <MyField hideLabel source="so_dang_ky" />
+                            <MyField hideLabel source="danh_diem" />
+                            <DetailStorageTag
+                                hideLabel
+                                source="ten_goi"
+                                {...props}
+                            />
+                            <MyField
+                                hideLabel
+                                source="quy_cach"
+                                label="resources.storage_tag.fields.ky_hieu_quy_cach"
+                            />
+                            <MyField hideLabel source="muc_du_tru" />
+                            <LocationStorage hideLabel source="vi_tri" />
+                            <MyField hideLabel source="khoi_luong" />
+                            <MyField hideLabel source="don_gia" />
+                            <DeleteStorageTagButton
+                                {...props}
+                                label="button.delete"
+                                headerStyle={{ width: "10%" }}
+                            />
+                        </MySearchableDataGrid>
+                    </List>
+                </Row>
+            </div>
+        )
     )
-));
+);
 
 const StatisticDistributeFilter = (props) => (
     <MyFilterBox

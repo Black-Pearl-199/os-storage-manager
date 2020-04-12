@@ -1,9 +1,8 @@
 import React, { Component } from "react";
-import { Create, SimpleForm } from "react-admin";
+import { Edit, SimpleForm } from "react-admin";
 import { compose } from "recompose";
 import { connect } from "react-redux";
 import { withStyles } from "@material-ui/core";
-import { Row } from "react-bootstrap";
 import {
     FormHeading,
     listStylesNoActions,
@@ -49,7 +48,7 @@ class EditStorageTag extends Component {
                     hasBack={!standAlone}
                 />
                 <>
-                    <Create {...rest} className="w-100" classes={classes}>
+                    <Edit {...rest} className="w-100" classes={classes}>
                         <SimpleForm
                             redirect="show"
                             defaultValue={storage_tag_edit}
@@ -164,7 +163,7 @@ class EditStorageTag extends Component {
                                 </InputWrapper>
                             </MyGroupingInput>
                         </SimpleForm>
-                    </Create>
+                    </Edit>
                 </>
             </>
         );

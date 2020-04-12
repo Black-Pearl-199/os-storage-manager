@@ -1,59 +1,61 @@
 import React from "react";
 import { withStyles } from "@material-ui/core";
-// import { List } from "react-admin";
-import { withTranslate } from 'react-admin';
+import { Row } from "react-bootstrap";
+import { withTranslate, List } from "react-admin";
 import { input_output_material } from "../../data-test";
 import {
     MySearchableDataGrid,
     listStylesNoActions,
     FormHeading,
-    // MyCustomPagination,
+    MyCustomPagination,
     MyField,
     MyBootstrapInput,
     MyFilterBox,
 } from "../../components";
 import { INPUT_OUTPUT_ORDER, LENH_NHAP_XUAT } from "../../configurations";
 
-export default withTranslate(withStyles(listStylesNoActions)(
-    ({ classes, hasShow, hasList, hasEdit, hasCreate, ...props }) => (
-        <div>
-            <FormHeading
-                title="page.material.title.list"
-                {...props}
-                hasBack={false}
-            />
-            <StatisticDistributeFilter {...props} />
-            {/* <Row className="my-3"> */}
-            {/* <List
-                classes={classes}
-                {...props}
-                className="w-100"
-                actions={null}
-                bulkActions={false}
-                pagination={<MyCustomPagination />}
-            > */}
-            <MySearchableDataGrid
-                {...props}
-                data={input_output_material}
-                ids={[0, 1, 2, 3]}
-                className="w-100 my-3"
-                classes={classes}
-                searchEnable={false}
-                rowClick={null}
-                currentSort={{}}
-            >
-                <MyField hideLabel source="loai" />
-                <MyField hideLabel source="so_lenh" />
-                <MyField hideLabel source="don_vi_nhap_xuat" />
-                <MyField hideLabel source="don_vi_nhap_xuat" />
-                <MyField hideLabel source="ngay_giao_nhan" />
-                <MyField hideLabel source="ngay_ra_lenh" />
-            </MySearchableDataGrid>
-            {/* </List> */}
-            {/* </Row> */}
-        </div>
+export default withTranslate(
+    withStyles(listStylesNoActions)(
+        ({ classes, hasShow, hasList, hasEdit, hasCreate, ...props }) => (
+            <div>
+                <FormHeading
+                    title="page.material.title.list"
+                    {...props}
+                    hasBack={false}
+                />
+                <StatisticDistributeFilter {...props} />
+                <Row className="my-3">
+                    <List
+                        classes={classes}
+                        {...props}
+                        className="w-100"
+                        actions={null}
+                        bulkActions={false}
+                        pagination={<MyCustomPagination />}
+                    >
+                        <MySearchableDataGrid
+                            {...props}
+                            data={input_output_material}
+                            ids={[0, 1, 2, 3]}
+                            className="w-100 my-3"
+                            classes={classes}
+                            searchEnable={false}
+                            rowClick={null}
+                            currentSort={{}}
+                        >
+                            <MyField hideLabel source="loai" />
+                            <MyField hideLabel source="so_lenh" />
+                            <MyField hideLabel source="don_vi_nhap_xuat" />
+                            <MyField hideLabel source="don_vi_nhap_xuat" />
+                            <MyField hideLabel source="ngay_giao_nhan" />
+                            <MyField hideLabel source="ngay_ra_lenh" />
+                        </MySearchableDataGrid>
+                    </List>
+                </Row>
+            </div>
+        )
     )
-));
+);
 
 const StatisticDistributeFilter = (props) => (
     <MyFilterBox

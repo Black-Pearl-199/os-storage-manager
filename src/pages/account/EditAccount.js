@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import { Create, SimpleForm } from "react-admin";
+import { Edit, SimpleForm } from "react-admin";
 import { compose } from "recompose";
 import { connect } from "react-redux";
 import { withStyles } from "@material-ui/core";
 import { Row } from "react-bootstrap";
-import { account_data } from '../../data-test';
+// import { account_data } from '../../data-test';
 import {
     FormHeading,
     listStylesNoActions,
@@ -13,7 +13,7 @@ import {
     MyGroupingInput,
     MyBootstrapInput
 } from "../../components";
-import { validateUsername, validatePassword, validatePasswordVerify } from "../../configurations/validation";
+import { validateUsername, validateSecretNotRequired, validatePasswordVerify } from "../../configurations/validation";
 import { CAP_DO, STORAGES } from "../../configurations";
 
 const enhance = compose(
@@ -33,9 +33,9 @@ class EditAccount extends Component {
                     hasBack={!standAlone}
                 />
                 <Row>
-                    <Create {...rest} className="w-100" classes={classes}>
+                    <Edit {...rest} className="w-100" classes={classes}>
                         <SimpleForm
-                            defaultValue={account_data[0]}
+                            // defaultValue={account_data[0]}
                             redirect={"list"}
                             className="container-fluid px-0"
                             toolbar={<MySaveToolbar />}
@@ -63,6 +63,7 @@ class EditAccount extends Component {
                                     groupClasses="row"
                                     labelClasses="col-xl-2 col-lg-4 col-md-6 col-sm-6"
                                     inputClasses="col-xl-10 col-lg-8 col-md-6 col-sm-6 my-auto"
+                                    validate={validateSecretNotRequired}
                                 />
                                 <MyTextInput
                                     source="verifyPassword"
@@ -90,7 +91,7 @@ class EditAccount extends Component {
                                 />
                             </MyGroupingInput>
                         </SimpleForm>
-                    </Create>
+                    </Edit>
                 </Row>
             </>
         );
